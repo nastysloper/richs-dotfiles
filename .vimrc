@@ -1,23 +1,24 @@
 "
-set nocompatible ruler laststatus=2 showcmd showmode modelines=0
-set encoding=utf-8
-set scrolloff=3
+set nocompatible showcmd showmode modelines=0
 set visualbell
 set cursorline
 set ttyfast
 set relativenumber
 set undofile
-"
-syntax on
+" What are these two for?
+set nobackup
+set noswapfile
 "
 colorscheme desert
-"
-set nu
 
+" for more efficient editing:
+let mapleader = ","
 inoremap jj <ESC>
+nnoremap <leader>s :w<CR>
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
 
 " Use two spaces for indentation
-set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -25,10 +26,7 @@ set expandtab
 
 " Show white space
 set list
-set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.,eol:¬
-
-set nobackup
-set noswapfile
+" set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.,eol:¬
 
 " use Firefox-like mapping for navigating tabs
 map <D-S-]> gt
@@ -54,3 +52,24 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 " set colorcolumn=85
+
+" Searching
+" Do not use vim regex
+nnoremap / /\v
+vnoremap / /\v
+" all lowercase string will search case-insensitive
+set ignorecase
+set smartcase
+" apply substitutions globally on lines
+set gdefault
+" Highlight matches
+set incsearch
+set showmatch
+set hlsearch
+" press leader space to clear highlighting
+nnoremap <leader><space> :noh<cr>
+" match bracket pairing easier
+nnoremap <tab> %
+vnoremap <tab> %
+
+execute pathogen#infect()

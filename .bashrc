@@ -12,6 +12,7 @@ export PATH="$HOME/dev/ops/bin:$PATH"
 # what is this for?
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH" # Added by the Heroku Toolbelt
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 alias subl='open -a /Applications/Sublime\ Text\ 2.app'
 which -s subl && export EDITOR="subl --wait"
@@ -65,4 +66,3 @@ function cdb {
 alias md5='md5 -r'
 alias md5sum='md5 -r'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
