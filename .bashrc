@@ -1,29 +1,26 @@
-# get this file loaded at startup
-
 # get the function for git hooks
 [[ -f ~/.bash_functions ]] && source ~/.bash_functions
-# get the function for showing white space, which I don't think works...
-# [[ -f ~/.vim_white_space ]] && source ~/.vim_white_space
 
 export BRIGHTTAG_HOME=/Users/richvogt/dev/brighttag
-export PATH=$PATH:$BRIGHTTAG_HOME/ops/bin
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="$HOME/dev/ops/bin:$PATH"
-# what is this for?
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/heroku/bin:$PATH" # Added by the Heroku Toolbelt
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+PATH=$PATH:$BRIGHTTAG_HOME/ops/bin
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+PATH=$PATH:$HOME/dev/ops/bin
+# what is this for? coreutils?
+PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+PATH=$PATH:/usr/local/heroku/bin # Added by the Heroku Toolbelt
+PATH=$PATH:/usr/local/lib # added for NPM
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias subl='open -a /Applications/Sublime\ Text\ 2.app'
 which -s subl && export EDITOR="subl --wait"
-alias ll='ls -lFh'
+# alias ll='ls -lFh'
+
 # guestvm
 alias g="ssh rvogt@guestvm"
 # bright
 alias b="ssh bright@guestvm"
 
 # Add some color to terminal output
-# export CLICOLOR=1
 export LSCOLORS='--color=auto'
 alias ls='ls ${LSCOLORS}'
 export GREP_OPTIONS='--color=auto'
@@ -40,8 +37,6 @@ parse_git_branch() {
 # Customize the command prompt
 # http://osxdaily.com/2006/12/11/how-to-customize-your-terminal-prompt/
 export PS1="\d \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-
-# This loads RVM
 
 # This loads NVM
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
