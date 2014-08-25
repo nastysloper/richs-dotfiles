@@ -13,18 +13,15 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias subl='open -a /Applications/Sublime\ Text\ 2.app'
 which -s subl && export EDITOR="subl --wait"
-alias ll='ls -lFh'
+alias ll='ls -lFGh'
 
 # guestvm
 alias g="ssh rvogt@guestvm"
 # bright
 alias b="ssh bright@guestvm"
 
-# Add some color to terminal output
-export LSCOLORS='G'
-alias ls='ls -${LSCOLORS}'
-# export GREP_OPTIONS='--color=auto'
-export GREP_OPTIONS='-G'
+export GREP_OPTIONS='--color=auto'
+# export GREP_OPTIONS='-G'
 
 # git bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
